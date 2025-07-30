@@ -1,12 +1,14 @@
 # CoreCrew API
 
-A modern NestJS-based HR application API built for managing human resources operations.
+A modern NestJS-based HR application API built for managing human resources operations with comprehensive Swagger documentation.
 
 ## 🚀 Features
 
 - RESTful API architecture
 - Built with NestJS framework
 - TypeScript support
+- **Swagger/OpenAPI 3.0 Documentation** - Interactive API documentation
+- **Auto-restart on file changes** - Hot reload for development
 - Comprehensive testing setup
 - CORS enabled
 - Health check endpoint
@@ -21,8 +23,11 @@ npm install
 ## 🏃‍♂️ Running the Application
 
 ```bash
-# Development mode
+# Development mode with hot reload (recommended)
 npm run start:dev
+
+# Start with Swagger documentation
+npm run docs
 
 # Production mode
 npm run start:prod
@@ -33,13 +38,32 @@ npm run start:debug
 
 The API will be available at `http://localhost:3000`
 
+## � API Documentation
+
+### Swagger UI
+- **Interactive Documentation**: `http://localhost:3000/api/docs`
+- **Test endpoints directly** from the browser
+- **Auto-generated** from your code annotations
+- **Always up-to-date** with your latest changes
+
+### Generate Documentation
+```bash
+# Generate Swagger JSON file
+npm run swagger:generate
+
+# Export documentation to ./docs/swagger.json
+npm run swagger:export
+```
+
 ## 📊 API Endpoints
 
-### Health Check
+### Core Endpoints
+- `GET /api` - Welcome message
 - `GET /api/health` - Returns API health status
 
-### Core
-- `GET /api` - Welcome message
+### Documentation
+- `GET /api/docs` - Swagger UI interface
+- `GET /api/docs-json` - OpenAPI JSON specification
 
 ## 🧪 Testing
 
@@ -64,11 +88,29 @@ npm run test:watch
 npm run build
 ```
 
+## 🔧 Development Features
+
+### Hot Reload
+The development server automatically restarts when you save any file:
+- **File watching** enabled by default in `npm run start:dev`
+- **Instant feedback** for code changes
+- **Preserves debugging session**
+
+### Debugging
+```bash
+# Start in debug mode
+npm run start:debug
+
+# Debug with hot reload
+npm run start:debug
+```
+
 ## 📝 Development
 
 This API is built with:
 - **NestJS** - Progressive Node.js framework
 - **TypeScript** - Type-safe JavaScript
+- **Swagger** - API documentation and testing
 - **Jest** - Testing framework
 - **Express** - Web framework (underlying)
 
@@ -79,27 +121,46 @@ This API is built with:
 3. Start development server: `npm run start:dev`
 4. Visit `http://localhost:3000/api` to see the welcome message
 5. Check health at `http://localhost:3000/api/health`
+6. **Explore API docs** at `http://localhost:3000/api/docs`
 
 ## 📦 Project Structure
 
 ```
 src/
-├── app.controller.ts     # Main application controller
+├── app.controller.ts     # Main application controller with Swagger docs
 ├── app.module.ts         # Root application module
 ├── app.service.ts        # Main application service
-└── main.ts              # Application entry point
+└── main.ts              # Application entry point with Swagger setup
 
 test/
 └── app.e2e-spec.ts      # End-to-end tests
+
+docs/
+└── swagger.json         # Generated OpenAPI specification
+
+scripts/
+└── generate-swagger.ts  # Automatic documentation generator
 ```
+
+## 📋 Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run start:dev` | Start development server with hot reload |
+| `npm run docs` | Start server with Swagger documentation |
+| `npm run build` | Build the application |
+| `npm run test` | Run unit tests |
+| `npm run swagger:generate` | Generate Swagger documentation |
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+3. Add Swagger decorators to new endpoints
+4. Run tests: `npm test`
+5. Commit your changes
+6. Push to the branch
+7. Create a Pull Request
 
 ## 📄 License
 
