@@ -23,18 +23,23 @@ npm install
 ## 🏃‍♂️ Running the Application
 
 ```bash
-# Development mode with hot reload (recommended)
+# Development mode with hot reload + Swagger (recommended)
+npm run dev
+
+# Alternative development mode
 npm run start:dev
 
-# Start with Swagger documentation
-npm run docs
+# Debug mode with hot reload + Swagger
+npm run debug
 
-# Production mode
+# Production mode + Swagger
+npm run prod
+
+# Alternative production mode
 npm run start:prod
-
-# Debug mode
-npm run start:debug
 ```
+
+**All modes include Swagger documentation automatically!**
 
 The API will be available at `http://localhost:3000`
 
@@ -146,11 +151,14 @@ scripts/
 
 | Script | Description |
 |--------|-------------|
-| `npm run start:dev` | Start development server with hot reload |
-| `npm run docs` | Start server with Swagger documentation |
+| `npm run dev` | **RECOMMENDED** - Development with hot reload + Swagger |
+| `npm run debug` | Debug mode with hot reload + Swagger |
+| `npm run prod` | Production mode + Swagger |
 | `npm run build` | Build the application |
 | `npm run test` | Run unit tests |
-| `npm run swagger:generate` | Generate Swagger documentation |
+| `npm run swagger:generate` | Generate Swagger JSON documentation |
+
+**🎉 All server commands automatically include Swagger at `/api/docs`**
 
 ## 🤝 Contributing
 
