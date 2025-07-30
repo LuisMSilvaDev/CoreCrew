@@ -8,9 +8,6 @@ async function bootstrap() {
   // Enable CORS
   app.enableCors();
   
-  // Global prefix for all routes
-  app.setGlobalPrefix('api');
-  
   // Swagger configuration
   const config = new DocumentBuilder()
     .setTitle('CoreCrew API')
