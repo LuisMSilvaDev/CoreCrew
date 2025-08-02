@@ -1,16 +1,21 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './App/app.controller';
-import { EntityController } from './Entities/Entity.controller';
+import { EntityController } from './Entities/entity.controller';
 import { AppService } from './App/app.service';
 import { UserModule } from './Users/user.module';
+import { AuthController } from './Auth/auth.controller';
+import { AuthModule } from './Auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/corecrew'),
-    UserModule
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
+    UserModule,
+    AuthModule
   ],
-  controllers: [AppController, EntityController],
+  controllers: [AppController, EntityController, AuthController],
   providers: [AppService],
 })
 export class AppModule {}
