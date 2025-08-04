@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './App/app.controller';
-import { EntityController } from './Entities/entity.controller';
 import { AppService } from './App/app.service';
-import { UserModule } from './Users/user.module';
+import { UserModule } from './Users/users.module';
 import { CommonModule } from './common/common.module';
 import { AuthController } from './Auth/auth.controller';
 import { AuthModule } from './Auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { EntitiesController } from './Entities/entities.controller';
 
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { ConfigModule } from '@nestjs/config';
     UserModule,
     AuthModule
   ],
-  controllers: [AppController, EntityController, AuthController],
+  controllers: [AppController, AuthController, EntitiesController],
   providers: [AppService],
 })
 export class AppModule {}

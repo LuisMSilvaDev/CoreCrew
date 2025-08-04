@@ -17,6 +17,7 @@ export class Roles {
 }
 
 export const RolesSchema = SchemaFactory.createForClass(Roles);
+RolesSchema.index({ UserRoleId: 1 }, { unique: true });
 
 // RolesSchema.pre('save', function(next) {
 //     this.Description = this.Description.toUpperCase();

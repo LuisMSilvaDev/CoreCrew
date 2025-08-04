@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { Model } from "mongoose";
+import { Model, ObjectId } from "mongoose";
 import { Roles } from "./roles.schema";
 import { InjectModel } from "@nestjs/mongoose";
 import { UUID } from "crypto";
@@ -19,7 +19,7 @@ export class RolesService {
         return await this.roleModel.findById(id).exec();
     } 
 
-    async UpdateRole(id: UUID, role: Partial<Roles>) {
+    async UpdateRole(id: ObjectId, role: Partial<Roles>) {
         return await this.roleModel.findByIdAndUpdate(id, role, { new: true }).exec();
     }
 
