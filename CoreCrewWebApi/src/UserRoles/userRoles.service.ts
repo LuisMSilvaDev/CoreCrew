@@ -22,7 +22,6 @@ export class UserRolesService {
      async GetRoleIdsByUserId(userId: UUID): Promise<UUID[] | null> {
         const roles = await this.userRolesModel.find({ UserId: userId }).exec();
         if (!roles) return null;
-        console.log(roles.map(role => role.RoleId));
         return roles.map(role => role.RoleId);
     } 
 
